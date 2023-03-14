@@ -2,20 +2,32 @@ import React, { Component } from 'react';
 
 interface ISearchBarState {
   query: string;
+  savedQuery: string;
 }
 
-type Inputevent = React.ChangeEvent<HTMLInputElement>;
+type InputEvent = React.ChangeEvent<HTMLInputElement>;
+type Clickevent = React.MouseEvent<HTMLElement>;
 
 export default class SearchBar extends Component<ISearchBarState> {
   state: ISearchBarState = {
     query: '',
+    savedQuery: '',
   };
 
-  handleChange = (event: Inputevent) => {
-    console.log(event.target.value);
+  handleChange = (e: InputEvent) => {
+    console.log(e.target.value);
     this.setState({
-      query: event.target.value,
+      query: e.target.value,
     });
+  };
+
+  handleSearch = (e: Clickevent) => {
+    e.preventDefault();
+    this.setState({
+      savedQuery: this.state.query,
+      query: '',
+    });
+    console.log(this.state.savedQuery);
   };
 
   render() {
@@ -23,9 +35,11 @@ export default class SearchBar extends Component<ISearchBarState> {
       <div>
         <div>
           <input type="text" placeholder="search" onChange={this.handleChange} />
-          <button type="button">Search</button>
+          <button type="button" onClick={this.handleSearch}>
+            Search
+          </button>
         </div>
-        <p>State query: {this.state.query}</p>
+        <p>Last search query was(will be picked up from local.storage): {this.state.savedQuery}</p>
       </div>
     );
   }
