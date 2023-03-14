@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 
 interface ISearchBarState {
   query: string;
-  savedQuery: string;
 }
 
 type InputEvent = React.ChangeEvent<HTMLInputElement>;
 type Clickevent = React.MouseEvent<HTMLElement>;
 
 export default class SearchBar extends Component<ISearchBarState> {
-  state: ISearchBarState = {
+  state: ISearchBarState = JSON.parse(localStorage.getItem('searchData')) || {
     query: '',
-    savedQuery: '',
   };
 
   handleChange = (e: InputEvent) => {
@@ -23,26 +21,24 @@ export default class SearchBar extends Component<ISearchBarState> {
 
   handleSearch = (e: Clickevent) => {
     e.preventDefault();
-    console.log('saved query ', this.state.savedQuery);
+    // console.log('saved query ', this.state.savedQuery);
   };
 
   componentDidMount(): void {
     console.log('mount');
-    this.setState({
-      savedQuery: localStorage.getItem('searchData'),
-    });
   }
 
   componentDidUpdate(): void {
-    console.log('update');
-    localStorage.setItem('searchData', this.state.query);
+    if (this.state.query !== '') {
+      console.log('update');
+      localStorage.setItem('searchData', JSON.stringify(this.state));
+    } else {
+      console.log('query empty');
+    }
   }
 
   componentWillUnmount(): void {
     console.log('unmount');
-    this.setState({
-      savedQuery: this.state.query,
-    });
   }
 
   render() {
@@ -54,14 +50,14 @@ export default class SearchBar extends Component<ISearchBarState> {
           <input
             type="text"
             placeholder="search"
-            defaultValue={this.state.savedQuery}
+            defaultValue={this.state.query}
             onChange={this.handleChange}
           />
           <button type="button" onClick={this.handleSearch} disabled>
             Search
           </button>
         </div>
-        <p>Last search query was: {this.state.savedQuery}</p>
+        <p>You searched for: {this.state.query}</p>
       </div>
     );
   }
