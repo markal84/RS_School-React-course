@@ -6,8 +6,8 @@ const Header: FC = () => {
 
   return (
     <>
+      <div className="Header">Current page: there will be current page name {path} </div>
       <Navbar />
-      <div>Current page: there will be current page name {path} </div>
     </>
   );
 };

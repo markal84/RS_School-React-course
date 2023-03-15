@@ -37,7 +37,7 @@ export default class CardsList extends Component<IProductsState> {
     return (
       <div>
         {!error && products.map((product) => <Card key={product.id} {...product} />)}
-        {error && <div>Cannot load products</div>}
+        {error && <div>Someting went wrong</div>}
       </div>
     );
   }

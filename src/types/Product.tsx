@@ -6,5 +6,5 @@ export default interface IProduct {
   rating: number;
   brand: string;
   category: string;
-  thumbnail: string;
+  thumbnail?: string;
 }

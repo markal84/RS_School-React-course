@@ -8,12 +8,14 @@ import Page404 from './pages/404';
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="*" element={<Page404 />} />
-      </Routes>
+      <div className="Wrapper">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="*" element={<Page404 />} />
+        </Routes>
+      </div>
     </div>
   );
 }
