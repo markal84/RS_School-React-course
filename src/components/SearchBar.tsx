@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-
-interface ISearchBarState {
-  query: string;
-}
+import ISearchBarState from '../types/Search';
 
 type InputEvent = React.ChangeEvent<HTMLInputElement>;
 type Clickevent = React.MouseEvent<HTMLElement>;
@@ -24,7 +21,7 @@ export default class SearchBar extends Component<ISearchBarState> {
   };
 
   componentWillUnmount(): void {
-    console.log('unmount');
+    console.log('unmount phase, saving query to localstorage');
     localStorage.setItem('searchData', JSON.stringify(this.state));
   }
 
@@ -38,7 +35,7 @@ export default class SearchBar extends Component<ISearchBarState> {
             defaultValue={this.state.query}
             onChange={this.handleChange}
           />
-          <button type="button" onClick={this.handleSearch} disabled>
+          <button type="button" onClick={this.handleSearch}>
             Search
           </button>
         </div>
