@@ -21,24 +21,11 @@ export default class SearchBar extends Component<ISearchBarState> {
 
   handleSearch = (e: Clickevent) => {
     e.preventDefault();
-    // console.log('saved query ', this.state.savedQuery);
   };
-
-  componentDidMount(): void {
-    console.log('mount');
-  }
-
-  componentDidUpdate(): void {
-    if (this.state.query !== '') {
-      console.log('update');
-      localStorage.setItem('searchData', JSON.stringify(this.state));
-    } else {
-      console.log('query empty');
-    }
-  }
 
   componentWillUnmount(): void {
     console.log('unmount');
+    localStorage.setItem('searchData', JSON.stringify(this.state));
   }
 
   render() {
@@ -57,7 +44,6 @@ export default class SearchBar extends Component<ISearchBarState> {
             Search
           </button>
         </div>
-        <p>You searched for: {this.state.query}</p>
       </div>
     );
   }
