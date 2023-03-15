@@ -8,7 +8,7 @@ type InputEvent = React.ChangeEvent<HTMLInputElement>;
 type Clickevent = React.MouseEvent<HTMLElement>;
 
 export default class SearchBar extends Component<ISearchBarState> {
-  state: ISearchBarState = JSON.parse(localStorage.getItem('searchData')) || {
+  state: ISearchBarState = JSON.parse(localStorage.getItem('searchData') || '{}') || {
     query: '',
   };
 
@@ -29,8 +29,6 @@ export default class SearchBar extends Component<ISearchBarState> {
   }
 
   render() {
-    console.log('render');
-
     return (
       <div>
         <div>
