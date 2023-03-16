@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import IProduct from '../types/Product';
+import { IProduct } from '../types/Product';
 
 export default class Card extends Component<IProduct> {
   render() {
