@@ -13,11 +13,11 @@ export default class CardsList extends Component<IProductsState> {
     error: false,
   };
 
-  query =
+  url =
     'https://dummyjson.com/products?limit=10&select=title,description,price,rating,brand,category,thumbnail';
 
   componentDidMount() {
-    fetch(this.query)
+    fetch(this.url)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -35,7 +35,7 @@ export default class CardsList extends Component<IProductsState> {
     const { products, error } = this.state;
 
     return (
-      <div>
+      <div className="CardsList">
         {!error && products.map((product) => <Card key={product.id} {...product} />)}
         {error && <div>Someting went wrong</div>}
       </div>

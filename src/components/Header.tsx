@@ -1,15 +1,25 @@
-import React, { FC } from 'react';
+import React, { Component } from 'react';
 import Navbar from './Navbar';
+import IHeaderState from '../types/Header';
 
-const Header: FC = () => {
-  const path: string = window.location.pathname;
+export default class Header extends Component<IHeaderState> {
+  path: string = window.location.pathname;
+  state: IHeaderState = {
+    location: '',
+  };
 
-  return (
-    <>
-      <div className="Header">Current page: there will be current page name {path} </div>
-      <Navbar />
-    </>
-  );
-};
+  componentDidMount(): void {
+    this.setState({
+      location: this.path,
+    });
+  }
 
-export default Header;
+  render() {
+    return (
+      <>
+        <div className="Header">Current page: {this.state.location}</div>
+        <Navbar />
+      </>
+    );
+  }
+}

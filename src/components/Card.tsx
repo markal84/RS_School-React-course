@@ -6,16 +6,23 @@ export default class Card extends Component<IProduct> {
     const { title, description, category, brand, price, rating, thumbnail } = this.props;
 
     return (
-      <div>
-        <p>{title}</p>
-        <p>{brand}</p>
-        <p>{description}</p>
-        <p>Category: {category}</p>
-        <p>Price: ${price}</p>
-        <p>Rating: {rating}</p>
-        <p>
+      <div className="CardWrapper">
+        <div className="Product-img">
           <img src={thumbnail} alt={`${title} image`}></img>
-        </p>
+        </div>
+        <div className="Product-info">
+          <div className="Product-text">
+            <h2>{title}</h2>
+            <h3>{brand}</h3>
+            <h4>{category}</h4>
+            <p>{description}</p>
+          </div>
+          <div className="Product-price-rating">
+            <p>
+              ${price} <span>Rating: {rating}</span>
+            </p>
+          </div>
+        </div>
       </div>
     );
   }
