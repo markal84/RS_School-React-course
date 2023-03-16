@@ -29,6 +29,19 @@ a {
   text-decoration: none;
 }
 
+/* Helper classes */
+.Center {
+  text-align: center;
+}
+
+.Mb-2 {
+  margin-bottom: 2rem;
+}
+
+.Mt-2 {
+  margin-top: 2rem;
+}
+
 /* App */
 .App {
   max-width: 1200px;
