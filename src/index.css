@@ -204,3 +204,18 @@ a {
   padding-left: 1rem;
   font-size: 1.1rem;
 }
+
+/* 404 */
+.NotFound {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.NotFound h2 {
+  font-weight: 500;
+  font-size: 5rem;
+}
+
+.NotFound p {
+  color: #8d8d8d;
+}
