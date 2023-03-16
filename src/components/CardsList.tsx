@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-import IProduct from '../types/Product';
+import { IProductsState } from '../types/Product';
 import Card from './Card';
-
-interface IProductsState {
-  products: IProduct[];
-  error: boolean;
-  isLoading: boolean;
-}
 
 export default class CardsList extends Component<IProductsState> {
   state: IProductsState = {

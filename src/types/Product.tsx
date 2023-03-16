@@ -1,4 +1,4 @@
-export default interface IProduct {
+interface IProduct {
   id: number;
   title: string;
   description: string;
@@ -7,4 +7,10 @@ export default interface IProduct {
   brand: string;
   category: string;
   thumbnail?: string;
+}
+
+export interface IProductsState {
+  products: IProduct[];
+  error: boolean;
+  isLoading: boolean;
 }
