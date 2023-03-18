@@ -1,2 +1,2 @@
-# rschool_react_components
+# RsSchool React course
 RS School React course -  week 1 - components 
