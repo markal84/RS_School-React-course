@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { IProductProps } from '../types/Product';
 
 export default class Card extends Component<IProductProps> {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { IProductsState, IProductProps } from '../types/Product';
 import Card from './Card';
 

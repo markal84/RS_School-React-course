@@ -5,7 +5,7 @@ import '@testing-library/jest-dom/extend-expect';
 describe('Search bar', () => {
   render(<SearchBar />);
 
-  it('renders correctly initial document', () => {
+  it('search input renders correctly', () => {
     const inputs = screen.getAllByRole('textbox');
     expect(inputs).toHaveLength(1);
   });
