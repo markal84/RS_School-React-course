@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
-import Page404 from './pages/404';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="*" element={<Page404 />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </div>

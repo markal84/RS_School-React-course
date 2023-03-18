@@ -12,21 +12,24 @@ export default class CardsList extends Component<IProductProps, IProductsState> 
   url =
     'https://dummyjson.com/products?limit=10&select=title,description,price,rating,brand,category,thumbnail';
 
+  getData = async () => {
+    try {
+      const res = await fetch(this.url);
+      const data = await res.json();
+      this.setState({
+        isLoading: false,
+        products: data.products as IProductProps[],
+      });
+    } catch (err) {
+      this.setState({
+        error: true,
+      });
+    }
+  };
+
   componentDidMount() {
     this.setState({ isLoading: true });
-    fetch(this.url)
-      .then((res) => res.json())
-      .then((res) =>
-        this.setState({
-          isLoading: false,
-          products: res.products,
-        })
-      )
-      .catch(() =>
-        this.setState({
-          error: true,
-        })
-      );
+    this.getData();
   }
 
   render() {
@@ -36,7 +39,7 @@ export default class CardsList extends Component<IProductProps, IProductsState> 
       <div className="CardsList">
         {isLoading && <div className="Center Mb-2 Mt-2">Loading products...</div>}
         {!error && !isLoading && products.map((product) => <Card key={product.id} {...product} />)}
-        {error && <div className="Center">Someting went wrong</div>}
+        {error && <div className="Center">Ups... Someting went wrong</div>}
       </div>
     );
   }

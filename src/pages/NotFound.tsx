@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-const Page404: FC = () => {
+const NotFound: FC = () => {
   return (
     <div className="NotFound">
       <h2>404</h2>
@@ -9,4 +9,4 @@ const Page404: FC = () => {
   );
 };
 
-export default Page404;
+export default NotFound;

@@ -1,21 +1,6 @@
 import React, { Component } from 'react';
-// import Navbar from './Navbar';
-// import IHeaderState from '../types/Header';
 
 export default class Header extends Component {
-  /*
-  path: string = window.location.pathname;
-  state: IHeaderState = {
-    location: '',
-  };
-
-  componentDidMount(): void {
-    this.setState({
-      location: this.path,
-    });
-  }
-  */
-
   render() {
     return (
       <>
