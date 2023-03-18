@@ -55,9 +55,15 @@ a {
 }
 
 /* Header */
-.Header {
+.PageRouteDisplay {
   font-size: 0.85rem;
   margin: 0.5rem 0;
+}
+
+.Header-text {
+  font-weight: 300;
+  color: #424242;
+  margin-bottom: 3rem;
 }
 
 /*** Navbar ***/

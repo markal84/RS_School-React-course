@@ -1,0 +1,19 @@
+import About from '../pages/About';
+import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+describe('Navlink ', () => {
+  test('Should link to about page', () => {
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
+    );
+
+    const links: HTMLAnchorElement[] = screen.getAllByRole('link');
+    expect(links[1].textContent).toEqual('About');
+  });
+});

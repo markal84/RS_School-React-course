@@ -1,4 +1,4 @@
-export interface IProduct {
+export interface IProductProps {
   id: number;
   title: string;
   description: string;
@@ -6,11 +6,11 @@ export interface IProduct {
   rating: number;
   brand: string;
   category: string;
-  thumbnail?: string;
+  thumbnail: string;
 }
 
 export interface IProductsState {
-  products: IProduct[];
+  products: IProductProps[];
   error: boolean;
   isLoading: boolean;
 }

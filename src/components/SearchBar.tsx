@@ -3,7 +3,11 @@ import ISearchBarState from '../types/Search';
 
 type InputEvent = React.ChangeEvent<HTMLInputElement>;
 
-export default class SearchBar extends Component<ISearchBarState> {
+interface ISearchBarProps {
+  test?: string;
+}
+
+export default class SearchBar extends Component<ISearchBarProps, ISearchBarState> {
   state: ISearchBarState = JSON.parse(localStorage.getItem('searchData') || '{}') || {
     query: '',
   };

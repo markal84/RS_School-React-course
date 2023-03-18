@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { IProduct } from '../types/Product';
+import { IProductProps } from '../types/Product';
 
-export default class Card extends Component<IProduct> {
+export default class Card extends Component<IProductProps> {
+  constructor(props: IProductProps) {
+    super(props);
+  }
   render() {
     const { title, description, category, brand, price, rating, thumbnail } = this.props;
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { IProductsState } from '../types/Product';
+import { IProductsState, IProductProps } from '../types/Product';
 import Card from './Card';
 
-export default class CardsList extends Component<IProductsState> {
+export default class CardsList extends Component<IProductProps, IProductsState> {
   state: IProductsState = {
     products: [],
     error: false,
