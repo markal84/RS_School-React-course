@@ -10,8 +10,8 @@
     "preview": "vite preview",
     "testvitec": "vitest run --coverage",
     "testvite": "vitest",
-    "test": "jest",
-    "testc": "jest --coverage "
+    "test": "jest --coverage",
+    "test-nocoverage": "jest"
   },
   "jest": {
     "transform": {
