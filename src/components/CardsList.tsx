@@ -13,23 +13,25 @@ export default class CardsList extends Component<IProductProps, IProductsState> 
     'https://dummyjson.com/products?limit=10&select=title,description,price,rating,brand,category,thumbnail';
 
   getData = async () => {
-    try {
-      const res = await fetch(this.url);
-      const data = await res.json();
-      this.setState({
-        isLoading: false,
-        products: data.products as IProductProps[],
-      });
-    } catch (err) {
-      this.setState({
-        error: true,
-      });
-    }
+    const res = await fetch(this.url);
+    const data = await res.json();
+    return data;
   };
 
   componentDidMount() {
     this.setState({ isLoading: true });
-    this.getData();
+    this.getData()
+      .then((data) => {
+        this.setState({
+          isLoading: false,
+          products: data.products as IProductProps[],
+        });
+      })
+      .catch(() => {
+        this.setState({
+          error: true,
+        });
+      });
   }
 
   render() {
