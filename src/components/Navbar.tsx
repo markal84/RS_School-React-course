@@ -12,7 +12,6 @@ const Navbar: FC = () => {
           <Link to="/about">About</Link>
         </li>
       </ul>
-      <div className="Navbar-dot"></div>
     </nav>
   );
 };
