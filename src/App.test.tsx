@@ -7,7 +7,7 @@ import { act } from 'react-dom/test-utils';
 global.fetch = jest.fn();
 
 describe('Test', () => {
-  test('full app render', async () => {
+  test('is fetching function present', async () => {
     await act(async () => render(<App />, { wrapper: BrowserRouter }));
 
     expect(screen.getByText(/Loading products.../i)).toBeInTheDocument();

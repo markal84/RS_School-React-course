@@ -1,0 +1,24 @@
+/*
+import { render, screen, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import CardsList from './CardsList';
+import { act } from 'react-dom/test-utils';
+import { IProductProps } from '../types/Product';
+import { getData } from '../api/getData';
+
+jest.mock('../api/getData.tsx', () => {
+  return {
+    products: jest.fn(),
+  };
+});
+
+describe('Test', () => {
+  test('is fetching data starting', async () => {
+    await act(async () => render(<CardsList />));
+
+    await waitFor(() => expect(screen.getByText(/IPhone X/i)).toBeInTheDocument());
+
+    screen.debug();
+  });
+});
+*/

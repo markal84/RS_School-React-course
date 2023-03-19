@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { IProductsState, IProductProps } from '../types/Product';
 import Card from './Card';
+import { getData } from '../api/getData';
 
 export default class CardsList extends Component<IProductProps, IProductsState> {
   state: IProductsState = {
@@ -9,18 +10,8 @@ export default class CardsList extends Component<IProductProps, IProductsState> 
     isLoading: false,
   };
 
-  url =
-    'https://dummyjson.com/products?limit=10&select=title,description,price,rating,brand,category,thumbnail';
-
-  getData = async () => {
-    const res = await fetch(this.url);
-    const data = await res.json();
-    return data;
-  };
-
-  componentDidMount() {
-    this.setState({ isLoading: true });
-    this.getData()
+  fetchData = () => {
+    getData()
       .then((data) => {
         this.setState({
           isLoading: false,
@@ -32,6 +23,11 @@ export default class CardsList extends Component<IProductProps, IProductsState> 
           error: true,
         });
       });
+  };
+
+  componentDidMount() {
+    this.setState({ isLoading: true });
+    this.fetchData();
   }
 
   render() {
